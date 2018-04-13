@@ -5,6 +5,7 @@ import 'antd/dist/antd.css';
 import PageHome from "./PageHome";
 import PageMarker from "./PageMarker";
 import PageSetting from "./PageSetting";
+import PageList from "./PageList";
 
 class Layouts extends React.Component {
 
@@ -39,6 +40,12 @@ class Layouts extends React.Component {
                             <Link to="/home">
                                 <Icon type="home" />Home</Link>
                         </Menu.Item>
+
+                        <Menu.Item key="List">
+                            <Link to="/list">
+                                <Icon type="profile" />List</Link>
+                        </Menu.Item>
+
                         <Menu.Item key="Marker">
                             <Link to="/marker">
                                 <Icon type="edit" />Marker</Link>
@@ -59,6 +66,7 @@ class Layouts extends React.Component {
                         <Route exact path='/home' component={PageHome}/>
                         <Route exact path='/marker' component={PageMarker}/>
                         <Route exact path='/setting' component={PageSetting}/>
+                        <Route exact path='/list' component={PageList}/>
                     </div>
                 </Content>
                 <Footer style={{ textAlign: 'center' }}>
