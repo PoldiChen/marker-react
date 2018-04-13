@@ -2,7 +2,7 @@ import React from "react";
 import { Table, Divider, Icon } from "antd";
 
 class PageList extends React.Component {
-    
+
     render() {
 
         const dataSource = [
