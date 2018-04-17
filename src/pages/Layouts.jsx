@@ -47,7 +47,7 @@ class Layouts extends React.Component {
                             <Menu.Item key="Marker">
                                 <Link to="/marker"><Icon type="edit" />Marker</Link>
                             </Menu.Item>
-                            
+
                             <Menu.Item key="Setting">
                                 <Link to="/setting"><Icon type="setting" />Settings</Link>
                             </Menu.Item>
