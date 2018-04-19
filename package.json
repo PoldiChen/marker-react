@@ -2,12 +2,41 @@
   "name": "marker",
   "version": "0.1.0",
   "private": true,
+
+  "babel": {
+    "presets": [
+      "react-app"
+    ],
+    "plugins": [
+      "react-hot-loader/babel",
+      "transform-runtime",
+      [
+        "import",
+        {
+          "libraryName": "antd",
+          "style": true
+        }
+      ]
+    ]
+  },
+
   "dependencies": {
     "antd": "^3.4.1",
-    "react": "^16.3.1",
-    "react-dom": "^16.3.1",
+    "babel-core": "6.26.0",
+    "babel-eslint": "7.2.3",
+    "babel-jest": "20.0.3",
+    "babel-loader": "7.1.2",
+    "babel-preset-react-app": "^3.1.0",
+    "babel-runtime": "6.26.0",
+    "less": "^2.7.3",
+    "less-loader": "^4.0.5",
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2",
+    "react-hot-loader": "^3.0.0",
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.1.4"
+
+
   },
   "scripts": {
     "start": "react-scripts start",
