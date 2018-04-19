@@ -1,6 +1,6 @@
 import React from "react";
 import { Layout, Menu, Breadcrumb, Icon } from 'antd';
-import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 import 'antd/dist/antd.css';
 import PageHome from "./PageHome";
 import PageMarker from "./PageMarker";

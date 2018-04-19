@@ -1,7 +1,7 @@
 import React from "react";
 import { Checkbox, message } from "antd";
-import Apis from "../config/api.config";
-import asyncFetch from "../utils/asyncFetch";
+import { API } from "../../../config/api.config";
+import asyncFetch from "../../../utils/asyncFetch";
 
 class CheckboxLabel extends React.Component {
 
@@ -22,7 +22,7 @@ class CheckboxLabel extends React.Component {
     };
 
     getLabels() {
-        let url = Apis.get_labels;
+        let url = API.get_labels;
         asyncFetch('GET', url, {},
             (res) => {
                 if (res.code === 0) {
