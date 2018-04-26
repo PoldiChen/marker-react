@@ -2,7 +2,7 @@ import React from 'react'
 import { withRouter } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import './index.less'
-import {Form, Icon, Input, Button, Checkbox} from 'antd';
+import {Form, Icon, Input, Button, Checkbox, message} from 'antd';
 import asyncFetch from "../../../utils/asyncFetch";
 // import {AppApis} from "../../config/api.config";
 // import {ROLES_DEFAULT_PAGE} from "../../config/router.config";
@@ -25,7 +25,22 @@ class LoginForm extends React.Component {
         e.preventDefault();
         this.props.form.validateFields((err, values) => {
             if (!err) {
-                //
+                console.log(values);
+                let url = "/j_spring_security_check";
+                let params = {
+                    j_username: values.userName,
+                    j_password: values.password,
+                    submit: 'Login'
+                };
+                asyncFetch('POST', url, params,
+                    (res) => {
+                        console.log(res);
+                        if (res.code === 0) {
+                            message.success("login success.");
+                        } else {
+                            message.error(res.message);
+                        }
+                    }, {}, 'cors');
             }
         });
     };
@@ -33,13 +48,25 @@ class LoginForm extends React.Component {
 
     render() {
 
+        const {getFieldDecorator} = this.props.form;
+
         return (
             <Form onSubmit={this.handleSubmit} className="login-form">
                 <FormItem>
-                    <Input prefix={<Icon type="user" style={{color: 'rgba(0,0,0,.25)'}}/>} placeholder="user name"/>
+                    {getFieldDecorator('userName', {
+                        rules: [{required: true, message: 'input user name'}],
+                    })(
+                        <Input prefix={<Icon type="user" style={{color: 'rgba(0,0,0,.25)'}}/>}
+                               placeholder="user name"/>
+                    )}
                 </FormItem>
                 <FormItem>
-                    <Input prefix={<Icon type="lock" style={{color: 'rgba(0,0,0,.25)'}}/>} type="password" placeholder="password"/>
+                    {getFieldDecorator('password', {
+                        rules: [{required: true, message: 'input password'}],
+                    })(
+                        <Input prefix={<Icon type="lock" style={{color: 'rgba(0,0,0,.25)'}}/>} type="password"
+                               placeholder="password"/>
+                    )}
                 </FormItem>
                 <FormItem style={{marginBottom: 0, textAlign: "right"}}>
                     <Button style={{marginRight: 10}}>Sign Up</Button>
