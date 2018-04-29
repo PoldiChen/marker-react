@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import LoginForm from "../components/common/LoginForm/index";
 import { BrowserRouter as Router } from 'react-router-dom'
 import { Card, Icon } from 'antd'
@@ -24,5 +25,11 @@ class PageLogin extends React.Component {
         );
     }
 }
+
+PageLogin.contextTypes = {
+    login: PropTypes.bool,
+    userInfo: PropTypes.object,
+    setLoginInfo: PropTypes.func
+};
 
 export default PageLogin;

@@ -6,6 +6,7 @@ import {Form, Icon, Input, Button, Checkbox, message} from 'antd';
 import asyncFetch from "../../../utils/asyncFetch";
 // import {AppApis} from "../../config/api.config";
 // import {ROLES_DEFAULT_PAGE} from "../../config/router.config";
+import { API } from "../../../config/api.config";
 
 const FormItem = Form.Item;
 
@@ -26,23 +27,42 @@ class LoginForm extends React.Component {
         this.props.form.validateFields((err, values) => {
             if (!err) {
                 console.log(values);
-                let url = "/j_spring_security_check";
+                let url = API.get_login;
                 let params = {
-                    j_username: values.userName,
-                    j_password: values.password,
-                    submit: 'Login'
+                    user_name: values.userName,
+                    password: values.password
                 };
-                asyncFetch('POST', url, params,
+                asyncFetch('GET', url, params,
                     (res) => {
                         console.log(res);
                         if (res.code === 0) {
                             message.success("login success.");
+                            this.getUserInfo();
                         } else {
                             message.error(res.message);
                         }
                     }, {}, 'cors');
             }
         });
+    };
+
+    getUserInfo = () => {
+        let url = API.get_current_user;
+        asyncFetch('GET', url, {},
+            (res) => {
+                console.log(res);
+                if (res.code === 0) {
+                    message.success("current user.");
+                    setTimeout(() => {
+                        this.context.setLoginInfo(true, res.data);
+                        this.props.history.push({
+                            pathname: '/home'
+                        })
+                    }, 1000)
+                } else {
+                    message.error(res.message);
+                }
+            }, {}, 'cors');
     };
 
 

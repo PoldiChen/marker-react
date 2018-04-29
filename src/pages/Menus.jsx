@@ -41,7 +41,7 @@ class Menus extends React.Component {
                 {
                     routes.map((route) =>
                         <Menu.Item key={route.key}>
-                            <Link to={route.link}><Icon type={route.iconType} />{route.text}</Link>
+                            <Link to={route.link}><Icon type={route.iconType} /><b>{route.text}</b></Link>
                         </Menu.Item>
                     )
                 }

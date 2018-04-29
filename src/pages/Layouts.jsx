@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { Layout, Breadcrumb } from 'antd';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 import 'antd/dist/antd.css';
@@ -54,5 +55,11 @@ class Layouts extends React.Component {
     }
 
 }
+
+Layouts.contextTypes = {
+    login: PropTypes.bool,
+    userInfo: PropTypes.object,
+    setLoginInfo: PropTypes.func
+};
 
 export default Layouts;
