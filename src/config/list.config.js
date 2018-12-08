@@ -3,7 +3,7 @@ const Columns = [
         title: "Title",
         dataIndex: "title",
         key: "title",
-        width: "20%"
+        width: "16%"
     }, {
         title: "Content",
         dataIndex: "content",
@@ -12,17 +12,17 @@ const Columns = [
         title: "Author",
         dataIndex: "author",
         key: "author",
-        width: "5%"
+        width: "8%"
     }, {
         title: "Label",
         dataIndex: "label",
         key: "label",
-        width: "5%"
+        width: "7%"
     }, {
         title: "Update Date",
         dataIndex: "update_date",
         key: "update_date",
-        width: "10%"
+        width: "15%"
     }
 ];
 

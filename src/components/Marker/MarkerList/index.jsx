@@ -45,6 +45,7 @@ class MarkerList extends React.Component {
     }
 
     getMarkers() {
+        console.log('MarkerList@getMarkers');
         let url = API.get_list;
         asyncFetch('GET', url, {},
             (res) => {
@@ -54,15 +55,21 @@ class MarkerList extends React.Component {
                         let labels = [];
                         row.labels.map(function(label) {
                             labels.push(label.name);
+                            return 0;
                         });
+                        let author = 'unknown';
+                        if (row.users.length > 0) {
+                            author = row.users[0]['display'];
+                        }
                         markers.push({
                             key: row.id,
                             title: row.title,
                             content: row.content,
-                            author: row.author,
+                            author: author,
                             update_date: row.updateDate,
                             label: labels.join(', ')
                         });
+                        return 0;
                     });
                     this.setState({
                         dataSource: markers
@@ -92,7 +99,7 @@ class MarkerList extends React.Component {
         columns.push({
             title: 'Operate',
             key: 'action',
-            width: '12%',
+            width: '18%',
             render: (text, record) => (
                 <span>
                     <a onClick={() => this.onView(record)}>View</a>

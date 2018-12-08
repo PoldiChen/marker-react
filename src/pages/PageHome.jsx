@@ -6,7 +6,7 @@ class PageHome extends React.Component {
         return(
             <div>
                 Marker, mark down yourself.<br />
-                <a href="https://github.com/PoldiChen/marker-react">github</a>
+                <a href="https://github.com/PoldiChen/marker-react">GitHub</a>
             </div>
         );
     }

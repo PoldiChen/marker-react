@@ -31,7 +31,7 @@ class MarkerCreate extends React.Component {
             title: value,
             content: this.state.content,
             labels: labelIds,
-            users: [{id: 1}], // todo: 获取当前登陆用户的id,
+            users: [{id: 1}], // todo: 鑾峰彇褰撳墠鐧婚檰鐢ㄦ埛鐨刬d,
             update_date: now
         };
         asyncFetch('POST', url, params,
