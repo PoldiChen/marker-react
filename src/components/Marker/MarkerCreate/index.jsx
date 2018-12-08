@@ -3,6 +3,9 @@ import { API } from "../../../config/api.config";
 import { Input, message } from "antd";
 import asyncFetch from "../../../utils/asyncFetch";
 import CheckboxLabel from "../../Label/CheckboxLabel/index";
+import moment from "moment";
+
+const DATE_FORMAT = 'yyyy-MM-dd hh:mm:ss';
 
 class MarkerCreate extends React.Component {
 
@@ -23,10 +26,13 @@ class MarkerCreate extends React.Component {
             });
             return 0;
         });
+        let now = moment().format('YYYY-MM-DD HH:mm:ss');
         let params = {
             title: value,
             content: this.state.content,
-            labels: labelIds
+            labels: labelIds,
+            users: [{id: 1}], // todo: 获取当前登陆用户的id,
+            update_date: now
         };
         asyncFetch('POST', url, params,
             (res) => {
