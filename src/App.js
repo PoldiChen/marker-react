@@ -48,6 +48,9 @@ class App extends Component {
     }
 
     setLoginInfo = (login, userInfo) => {
+        console.log('App.js@setLoginInfo');
+        console.log(login);
+        console.log(userInfo);
         this.setState(
             {
                 login: login,

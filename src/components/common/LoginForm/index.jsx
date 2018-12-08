@@ -47,6 +47,7 @@ class LoginForm extends React.Component {
     };
 
     getUserInfo = () => {
+        console.log('LoginForm@getUserInfo');
         let url = API.get_current_user;
         asyncFetch('GET', url, {},
             (res) => {
@@ -64,7 +65,6 @@ class LoginForm extends React.Component {
                 }
             }, {}, 'cors');
     };
-
 
     render() {
 

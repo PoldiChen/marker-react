@@ -23,8 +23,8 @@ const asyncFetch = (method, API, otherParams, success, otherHeader = {}, corsSet
     let api = process.env.NODE_ENV === 'development' ? API : '/cross_origin' + API;
     let header = new Headers();
     header.set('Content-Type', 'application/json');
-    for(let key in otherHeader) {
-        if(otherHeader.hasOwnProperty(key)) {
+    for (let key in otherHeader) {
+        if (otherHeader.hasOwnProperty(key)) {
             header.set(key, otherHeader[key])
         }
     }
@@ -35,10 +35,10 @@ const asyncFetch = (method, API, otherParams, success, otherHeader = {}, corsSet
         credentials: 'include'
     };
 
-    if(method === 'GET' || method === 'HEAD') {
+    if (method === 'GET' || method === 'HEAD') {
         let urlSearch = [];
-        for(let key in otherParams) {
-            if(otherParams.hasOwnProperty(key)) {
+        for (let key in otherParams) {
+            if (otherParams.hasOwnProperty(key)) {
                 urlSearch.push(key + '=' + otherParams[key])
             }
         }
