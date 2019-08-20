@@ -23,30 +23,32 @@ class LoginForm extends React.Component {
     }
 
     handleSubmit = (e) => {
+        console.log("LoginForm@handleSubmit");
         e.preventDefault();
         this.props.form.validateFields((err, values) => {
             if (!err) {
                 console.log(values);
                 let url = API.get_login;
                 let params = {
-                    user_name: values.userName,
+                    userName: values.userName,
                     password: values.password
                 };
-                asyncFetch('GET', url, params,
+                asyncFetch('POST', url, params,
                     (res) => {
-                        console.log(res);
-                        if (res.code === 0) {
+                        console.log(res.headers.get("authorization"));
+                        let token = res.headers.get("authorization");
+                        if (res.status == 200) {
                             message.success("login success.");
-                            this.getUserInfo();
+                            this.getUserInfo(token);
                         } else {
                             message.error(res.message);
                         }
-                    }, {}, 'cors');
+                    }, {}, 'cors', {}, true);
             }
         });
     };
 
-    getUserInfo = () => {
+    getUserInfo = (token) => {
         console.log('LoginForm@getUserInfo');
         let url = API.get_current_user;
         asyncFetch('GET', url, {},
@@ -63,7 +65,7 @@ class LoginForm extends React.Component {
                 } else {
                     message.error(res.message);
                 }
-            }, {}, 'cors');
+            }, {}, 'cors', {}, false, token);
     };
 
     render() {

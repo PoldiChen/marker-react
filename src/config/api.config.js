@@ -4,7 +4,7 @@ const API = {
     'delete_marker': '/marker/%s',
     'get_labels': '/label',
 
-    'get_login': '/user/login',
+    'get_login': '/login',
     'get_current_user': '/user/current_user',
 };
 

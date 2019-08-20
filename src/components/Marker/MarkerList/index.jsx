@@ -58,9 +58,9 @@ class MarkerList extends React.Component {
                             return 0;
                         });
                         let author = 'unknown';
-                        if (row.users.length > 0) {
-                            author = row.users[0]['display'];
-                        }
+                        // if (row.users.length > 0) {
+                        //     author = row.users[0]['display'];
+                        // }
                         markers.push({
                             key: row.id,
                             title: row.title,
