@@ -19,7 +19,7 @@
     ]
   },
   "dependencies": {
-    "antd": "^3.4.1",
+    "antd": "^3.13.0",
     "babel-core": "6.26.0",
     "babel-eslint": "7.2.3",
     "babel-jest": "20.0.3",
@@ -31,7 +31,7 @@
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
     "react-hot-loader": "^3.0.0",
-    "react-router-dom": ">=16.3.3",
+    "react-router-dom": "^4.2.2",
     "react-scripts": "1.1.4"
   },
   "scripts": {

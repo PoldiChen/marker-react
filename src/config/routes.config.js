@@ -3,6 +3,7 @@ import AsyncCompnent from "../components/common/HighOrderComponents/AsyncCompone
 const PageHome = AsyncCompnent(() => import("../pages/PageHome.jsx"));
 const PageList = AsyncCompnent(() => import("../pages/PageList.jsx"));
 const PageMarker = AsyncCompnent(() => import("../pages/PageMarker.jsx"));
+const PageLabel = AsyncCompnent(() => import("../pages/PageLabel.jsx"));
 const PageSetting = AsyncCompnent(() => import("../pages/PageSetting.jsx"));
 
 const ROUTES = [
@@ -24,6 +25,12 @@ const ROUTES = [
         iconType: 'edit',
         text: 'Marker',
         component: PageMarker
+    }, {
+        key: 'Label',
+        link: '/label',
+        iconType: 'tag',
+        text: 'Label',
+        component: PageLabel
     }, {
         key: 'Setting',
         link: '/setting',

@@ -1,3 +1,7 @@
+import React from "react";
+import { Tag } from 'antd';
+import getColor from "../utils/common";
+
 const Columns = [
     {
         title: "Title",
@@ -12,12 +16,13 @@ const Columns = [
         title: "Author",
         dataIndex: "author",
         key: "author",
-        width: "8%"
+        width: "9%"
     }, {
         title: "Label",
         dataIndex: "label",
         key: "label",
-        width: "7%"
+        width: "7%",
+        render: (text) => (<Tag color={getColor()}>{text}</Tag>)
     }, {
         title: "Update Date",
         dataIndex: "update_date",

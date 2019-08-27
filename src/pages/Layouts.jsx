@@ -48,7 +48,7 @@ class Layouts extends React.Component {
                             }
                         </div>
                     </Content>
-                    <Footer style={{ textAlign: 'center' }}>Marker ©2018 Created by Poldi Chen.</Footer>
+                    <Footer style={{ textAlign: 'center' }}>Marker ©2019 Created by Poldi Chen.</Footer>
                 </Layout>
             </Router>
         );

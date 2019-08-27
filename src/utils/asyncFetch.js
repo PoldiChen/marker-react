@@ -24,7 +24,7 @@ const asyncFetch = (method, API, otherParams, success, otherHeader = {},
     let api = process.env.NODE_ENV === 'development' ? API : '/cross_origin' + API;
     let header = new Headers();
     header.set('Content-Type', 'application/json');
-    header.set("Authentication", token);
+    header.set("Authorization", token);
     for (let key in otherHeader) {
         if (otherHeader.hasOwnProperty(key)) {
             header.set(key, otherHeader[key])

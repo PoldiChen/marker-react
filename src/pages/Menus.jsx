@@ -17,8 +17,14 @@ class Menus extends React.Component {
     }
 
     componentDidMount() {
+        console.log("Menus.jsx@componentDidMount");
         let pathname = this.context.router.route.location.pathname;
+        console.log(pathname);
         let index = _.findIndex(routes, route => route.link === pathname);
+        console.log(index);
+        if (index === -1) {
+            index = 0;
+        }
         this.setState({activeKey: routes[index]['key']});
         this.props.updateActive(routes[index]['key']);
     }
