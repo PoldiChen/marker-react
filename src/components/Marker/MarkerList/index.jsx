@@ -6,6 +6,7 @@ import IconLike from "../../common/IconLike/index";
 import asyncFetch from "../../../utils/asyncFetch";
 import { API } from "../../../config/api.config";
 import _ from "lodash";
+import PropTypes from "prop-types";
 
 class MarkerList extends React.Component {
 
@@ -138,5 +139,9 @@ class MarkerList extends React.Component {
     }
 
 }
+
+MarkerList.contextTypes = {
+    token: PropTypes.string
+};
 
 export default MarkerList;

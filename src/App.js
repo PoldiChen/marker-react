@@ -13,14 +13,20 @@ import asyncFetch from "./utils/asyncFetch";
 class App extends Component {
 
     constructor(props) {
+        console.log("App.js@constructor");
+        console.log(props);
         super(props);
         this.state = {
             login: false,
-            userInfo: {}
+            userInfo: {},
+            token: ''
         }
     }
 
     componentDidMount() {
+        console.log("App.js@componentDidMount");
+        console.log(this.state.token);
+        console.log(this.state.userInfo);
         let url = API.get_current_user;
         asyncFetch('GET', url, {},
             (res) => {
@@ -30,36 +36,43 @@ class App extends Component {
                     message.success(JSON.stringify(res.data));
                     this.setState(
                         {
-                            login: true
+                            login: true,
+                            userInfo: res.data
                         }
                     );
                 } else {
                     message.error(res.message);
                 }
-            }, {}, 'cors');
+            }, {}, 'cors', () => {}, false, localStorage.getItem("markerToken"));
     }
 
     getChildContext() {
         return {
             login: this.state.login,
             userInfo: this.state.userInfo,
+            token: this.state.token,
             setLoginInfo: this.setLoginInfo
         };
     }
 
-    setLoginInfo = (login, userInfo) => {
+    setLoginInfo = (login, userInfo, token) => {
         console.log('App.js@setLoginInfo');
         console.log(login);
         console.log(userInfo);
+        console.log(token);
+        localStorage.setItem("markerToken", token);
         this.setState(
             {
                 login: login,
-                userInfo: userInfo
+                userInfo: userInfo,
+                token: token
             }
         );
     };
 
     render() {
+        console.log("App.js@render");
+        console.log(this.state.login);
         return (
             <LocaleProvider locale={enUs}>
             {
@@ -81,7 +94,8 @@ class App extends Component {
 App.childContextTypes = {
     login: PropTypes.bool,
     userInfo: PropTypes.object,
-    setLoginInfo: PropTypes.func
+    setLoginInfo: PropTypes.func,
+    token: PropTypes.string
 };
 
 

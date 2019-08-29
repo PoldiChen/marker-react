@@ -21,6 +21,8 @@ const defaultFailSolution = (res) => {
  */
 const asyncFetch = (method, API, otherParams, success, otherHeader = {},
                     corsSetting = 'same-origin', fail = defaultFailSolution, rawResp = false, token = "") => {
+    console.log("asyncFetch");
+    console.log(token);
     let api = process.env.NODE_ENV === 'development' ? API : '/cross_origin' + API;
     let header = new Headers();
     header.set('Content-Type', 'application/json');

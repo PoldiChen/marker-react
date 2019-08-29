@@ -1,12 +1,12 @@
 import React from 'react'
-import { withRouter } from 'react-router-dom'
+import {withRouter} from 'react-router-dom'
 import PropTypes from 'prop-types'
 import './index.less'
 import {Form, Icon, Input, Button, Checkbox, message} from 'antd';
 import asyncFetch from "../../../utils/asyncFetch";
 // import {AppApis} from "../../config/api.config";
 // import {ROLES_DEFAULT_PAGE} from "../../config/router.config";
-import { API } from "../../../config/api.config";
+import {API} from "../../../config/api.config";
 
 const FormItem = Form.Item;
 
@@ -57,7 +57,7 @@ class LoginForm extends React.Component {
                 if (res.code === 0) {
                     message.success("current user.");
                     setTimeout(() => {
-                        this.context.setLoginInfo(true, res.data);
+                        this.context.setLoginInfo(true, res.data, token);
                         this.props.history.push({
                             pathname: '/home'
                         })

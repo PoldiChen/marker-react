@@ -4,6 +4,7 @@ import { Menu, Icon } from "antd";
 import { Link } from 'react-router-dom';
 import { ROUTES } from "../config/routes.config";
 import _ from "lodash";
+import UserAvatar from "../components/common/UserAvatar";
 
 const routes = _.clone(ROUTES);
 
@@ -51,6 +52,7 @@ class Menus extends React.Component {
                         </Menu.Item>
                     )
                 }
+                <UserAvatar />
             </Menu>
         );
     }

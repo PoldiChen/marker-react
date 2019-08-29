@@ -66,14 +66,14 @@ class MarkerCreate extends React.Component {
             <div>
 
                 <Search
-                    placeholder="input title here"
+                    placeholder="Input title here"
                     onSearch={value => this.handleOnSearch(value)}
                     enterButton="Submit"
                 />
 
                 <TextArea
                     rows={20}
-                    placeholder="input content here"
+                    placeholder="Input content here"
                     style={{marginTop: "8px", marginBottom: "8px"}}
                     onChange={this.handleTextAreaOnChange}
                 />
